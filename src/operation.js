@@ -81,9 +81,9 @@ export default class Operation {
    *
    * @return {String} The GraphQL query or mutation string.
    */
-  toString() {
+  toString(inContextDirective = "") {
     const nameString = (this.name) ? ` ${this.name}` : '';
 
-    return `${this.operationType}${nameString}${this.variableDefinitions}${this.selectionSet}`;
+    return `${this.operationType}${nameString}${this.variableDefinitions}${inContextDirective || ""}${this.selectionSet}`;
   }
 }

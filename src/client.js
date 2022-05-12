@@ -121,7 +121,7 @@ export default class Client {
    * @param {Object} [headers] Additional headers to be applied on a request by request basis.
    * @return {Promise.<Object>} A promise resolving to an object containing the response data.
    */
-  send(request, variableValues = null, otherProperties = null, headers = null) {
+  send(request, variableValues = null, otherProperties = null, headers = null, inContextDirective = null) {
     let operationOrDocument;
 
     if (Function.prototype.isPrototypeOf(request)) {
@@ -130,7 +130,7 @@ export default class Client {
       operationOrDocument = request;
     }
 
-    const graphQLParams = {query: operationOrDocument.toString()};
+    const graphQLParams = {query: operationOrDocument.toString(inContextDirective)};
 
     if (variableValues) {
       graphQLParams.variables = variableValues;

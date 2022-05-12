@@ -61,8 +61,8 @@ export default class Document {
    *
    * @return {String} The GraphQL query string for the Document.
    */
-  toString() {
-    return join(this.definitions);
+  toString(inContextDirective = '') {
+    return this.definitions.map((x) => x.toString(inContextDirective)).join(' ');
   }
 
   /**
