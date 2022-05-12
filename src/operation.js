@@ -81,9 +81,14 @@ export default class Operation {
    *
    * @return {String} The GraphQL query or mutation string.
    */
-  toString(inContextDirective = "") {
+  toString(inContextDirective = '') {
     const nameString = (this.name) ? ` ${this.name}` : '';
+    let icd = inContextDirective || '';
 
-    return `${this.operationType}${nameString}${this.variableDefinitions}${inContextDirective || ""}${this.selectionSet}`;
+    if (icd.length) {
+      icd = ` ${icd} `;
+    }
+
+    return `${this.operationType}${nameString}${this.variableDefinitions}${icd}${this.selectionSet}`;
   }
 }

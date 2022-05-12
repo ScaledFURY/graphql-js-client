@@ -119,6 +119,7 @@ export default class Client {
    * @param {Object} [variableValues] The values for variables in the operation or document.
    * @param {Object} [otherProperties] Other properties to send with the query. For example, a custom operation name.
    * @param {Object} [headers] Additional headers to be applied on a request by request basis.
+   * @param {string} [inContextDirective] string value for @inContext directive
    * @return {Promise.<Object>} A promise resolving to an object containing the response data.
    */
   send(request, variableValues = null, otherProperties = null, headers = null, inContextDirective = null) {
