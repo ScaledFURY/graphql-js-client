@@ -86,7 +86,7 @@ export default class Operation {
     let icd = inContextDirective || '';
 
     if (icd.length) {
-      icd = ` ${icd} `;
+      icd = ` ${icd}`;
     }
 
     return `${this.operationType}${nameString}${this.variableDefinitions}${icd}${this.selectionSet}`;
